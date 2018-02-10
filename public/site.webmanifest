@@ -1,0 +1,14 @@
+{
+    "name": "Errors in Go",
+    "short_name": "Errors in Go",
+    "icons": [
+        {
+            "src": "/android-chrome-72x72.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#6369d1",
+    "background_color": "#6369d1",
+    "display": "standalone"
+}

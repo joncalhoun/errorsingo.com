@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>this-is-not-used - Errors in Go</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="keywords" content="learn golang go gopher coding errors">
+  
+  <meta name="author" content="Jon Calhoun">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6369d1">
+  <meta name="apple-mobile-web-app-title" content="Errors in Go">
+  <meta name="application-name" content="Errors in Go">
+  <meta name="msapplication-TileColor" content="#603cba">
+  <meta name="theme-color" content="#6369d1">
+
+  
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-grey-lightest">
+  <nav class="flex p-4 px-6">
+    <div class="flex-grow items-center text-center">
+      <a href="/"><img alt="Common Causes and Fixes For Errors in Go" style="max-height: 120px;" src="/img/banner999.png"></a>
+    </div>
+  </nav>
+
+<div class="container mx-auto my-6 px-6">
+  <div class="">
+    View errors by:
+    <a href="/" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Date Added</a>
+    <a href="/pkg" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Package/Type</a>
+  </div>
+</div>
+<div class="container mx-auto my-6 bg-white rounded shadow-md">
+  <h1 class="px-6 pt-8 pb-6 text-black">invalid identifier character U&#43;201D &#39;”&#39;</h1>
+  <div class="bg-grey-lightest border-t border-b border-grey-lighter w-full p-6 mb-8">
+    <code class="text-red">go build</code>
+    <code class="text-grey px-1">→</code>
+    <code class="text-yellow-dark block sm:inline">"invalid identifier character U&#43;201D &#39;”&#39;"</code>
+    
+  </div>
+  <div class="content pb-8">
+    
+
+<h2 id="what-causes-the-error">What causes the error?</h2>
+
+<p>This error, and many other <code>invalid identifier</code> errors like it, stem from using an invalid character in your Go code. In this particular case, the issue stems from those weird curved quotation marks - <code>“</code> and <code>”</code> - which are different from the quotation marks you normally type. An example is shown below.</p>
+
+<div class="playground"><pre><code class="language-go" data-lang="go"><span></span><span id="codeline-1"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="codeline-2">  <span class="c1">// this line cause a compilation error</span>
+</span><span id="codeline-3">	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="err">“</span><span class="nx">test</span><span class="err">”</span><span class="p">)</span>
+</span><span id="codeline-4"><span class="p">}</span>
+</span></code></pre></div>
+
+<div class="playground-footer">
+  <p>
+    Run it on the Go Playground → <a class="text-indigo-lightest hover:text-white" href="https://play.golang.org/p/iXew6CUG4Cf">https://play.golang.org/p/iXew6CUG4Cf</a>
+  </p>
+</div>
+
+
+<p>The most common way this error is introduced is by copy/pasting code from a website or an application that replaces regular quotation marks with these special ones.</p>
+
+<p>It is important to note that you are allowed to have these quotes inside of a string, but they can&rsquo;t be used to start and end a string. For instance, the following code is valid and will compile because the special quoatation characters are inside a string.</p>
+
+<p><div class="playground"><pre><code class="language-go" data-lang="go"><span></span><span id="codeline-1"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="codeline-2">	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;“test”&quot;</span><span class="p">)</span>
+</span><span id="codeline-3"><span class="p">}</span>
+</span></code></pre></div>
+
+<div class="playground-footer">
+  <p>
+    Run it on the Go Playground → <a class="text-indigo-lightest hover:text-white" href="https://play.golang.org/p/y0f-jjo2s8n">https://play.golang.org/p/y0f-jjo2s8n</a>
+  </p>
+</div>
+</p>
+
+<h2 id="how-can-i-fix-it">How can I fix it?</h2>
+
+<p>The simple solution here is to find all instances of the incorrect quotation marks in your code and replace them with the regular quotation mark. Just be sure not to remove any you intended to have inside of a string.</p>
+
+  </div>
+</div>
+  <p class="text-center text-grey-dark text-xs py-8">
+    Created by <a class="text-grey-dark hover:text-grey-darkest" href="https://www.calhoun.io">Jon Calhoun</a>, but you can check out the source and contribute on
+    <a class="no-underline px-2 py-1 rounded bg-blue hover:bg-blue-dark text-white hover:text-white" href="https://github.com/joncalhoun/errorsingo.com">GitHub</a>
+  </p>
+  <center><img class="pb-8" src="/img/g100.png"></center>
+</body>
+</html>
+

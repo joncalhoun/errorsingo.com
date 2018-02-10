@@ -1,0 +1,57 @@
+{{$paginator := $.Scratch.Get "paginator"}}
+<div class="container mx-auto my-6 bg-white rounded shadow-md">
+  <p class="p-6 text-grey-darker">
+    Below is a list of common errors in Go. Click on any of them to find out frequent causes, fixes, and more.
+  </p>
+  {{range $paginator.Pages}}
+    {{if not .Params.error}}
+      NO ERROR?!?!!? {{.}}
+    {{else}}
+    <div class="w-full border border-grey-lighter hover:border-grey-light">
+      <a class="flex no-underline px-6 py-6 items-center" href="{{.Permalink}}">
+        <div class="flex-grow">
+          <code class="text-red">{{.Params.error.source}}</code>
+          <code class="text-grey px-1">→</code>
+          <code class="text-yellow-dark block sm:inline">"{{.Params.error.message}}"</code>
+          <code class="text-sm text-grey block">package: {{with .Params.package}}{{.import}}{{else}}n/a{{end}}</code>
+        </div>
+        <div class="flex-no-shrink">
+          <div class="bg-green hover:bg-green-dark text-green-lightest hover:text-white rounded px-2 py-1 flex items-center">
+            <span class="">Read more</span>
+            <span class="pl-1">→</span>
+          </div>
+        </div>
+      </a>
+    </div>
+    {{end}}
+  {{end}}
+
+  <div class="w-full font-bold py-8">
+  {{if (or $paginator.HasPrev $paginator.HasNext)}}
+    <center>
+    {{if $paginator.HasPrev}}
+      <a href="{{$paginator.Prev.URL}}" class="no-underline bg-grey-light hover:bg-grey text-grey-darker hover:text-black py-2 px-4 rounded-l">
+        ← Prev Page
+      </a>
+    {{else}}
+      <a class="no-underline text-grey-light bg-grey-lightest inactive cursor-not-allowed py-2 px-4 rounded-l ">
+        ← Prev Page
+      </a>
+    {{end}}
+    {{if $paginator.HasNext}}
+      <a href="{{$paginator.Next.URL}}" class="no-underline bg-grey-light hover:bg-grey text-grey-darker hover:text-black py-2 px-4 rounded-r">
+        Next Page →
+      </a>
+    {{else}}
+      <a class="no-underline text-grey-light bg-grey-lightest inactive cursor-not-allowed py-2 px-4 rounded-r ">
+        Next Page →
+      </a>
+    {{end}}
+    </center>
+  {{end}}
+  </div>
+  <p class="px-6 pb-6 text-center text-sm text-grey">
+    Want to contribute to this project? <a class="text-grey hover:text-grey-darker" href="https://github.com/joncalhoun/errorsingo.com">Submit a PR!</a>
+  </p>
+
+</div>

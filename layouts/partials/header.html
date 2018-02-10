@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{with .Title}}{{.}} - {{end}}Errors in Go</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="keywords" content="{{range .Page.Params.Tags}}{{.}} {{end}}learn golang go gopher coding errors">
+  {{$author := or .Page.Params.author "Jon Calhoun"}}
+  <meta name="author" content="{{$author}}">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6369d1">
+  <meta name="apple-mobile-web-app-title" content="Errors in Go">
+  <meta name="application-name" content="Errors in Go">
+  <meta name="msapplication-TileColor" content="#603cba">
+  <meta name="theme-color" content="#6369d1">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Fredericka+the+Great" rel="stylesheet"> -->
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-grey-lightest">
+  <nav class="flex p-4 px-6">
+    <div class="flex-grow items-center text-center">
+      <a href="/"><img alt="Common Causes and Fixes For Errors in Go" style="max-height: 120px;" src="/img/banner999.png"></a>
+    </div>
+  </nav>

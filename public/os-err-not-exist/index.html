@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>this-is-not-used - Errors in Go</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="keywords" content="learn golang go gopher coding errors">
+  
+  <meta name="author" content="Jon Calhoun">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6369d1">
+  <meta name="apple-mobile-web-app-title" content="Errors in Go">
+  <meta name="application-name" content="Errors in Go">
+  <meta name="msapplication-TileColor" content="#603cba">
+  <meta name="theme-color" content="#6369d1">
+
+  
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-grey-lightest">
+  <nav class="flex p-4 px-6">
+    <div class="flex-grow items-center text-center">
+      <a href="/"><img alt="Common Causes and Fixes For Errors in Go" style="max-height: 120px;" src="/img/banner999.png"></a>
+    </div>
+  </nav>
+
+<div class="container mx-auto my-6 px-6">
+  <div class="">
+    View errors by:
+    <a href="/" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Date Added</a>
+    <a href="/pkg" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Package/Type</a>
+  </div>
+</div>
+<div class="container mx-auto my-6 bg-white rounded shadow-md">
+  <h1 class="px-6 pt-8 pb-6 text-black">file does not exist</h1>
+  <div class="bg-grey-lightest border-t border-b border-grey-lighter w-full p-6 mb-8">
+    <code class="text-red">os.ErrNotExist</code>
+    <code class="text-grey px-1">→</code>
+    <code class="text-yellow-dark block sm:inline">"file does not exist"</code>
+    
+      <code class="text-sm text-grey block">
+        package documentation:
+        <a href="https://godoc.org/os" class="text-grey">os</a>
+      </code>
+    
+  </div>
+  <div class="content pb-8">
+    
+
+<h2 id="what-causes-the-error">What causes the error?</h2>
+
+<p>If you are here, I&rsquo;m going to assume that you already checked to see if the file exists. If not, go do that now. I&rsquo;ll wait&hellip;</p>
+
+<p>Okay, files there? Great. The most common cause of this error (aside from a file not being present) stems from not understanding how a Go program looks for files. Unlike many languages you may have used in the past, <strong>Go opens files relative to where the binary is run from</strong>. For instance, let&rsquo;s imagine we had the following program which will open a file named <code>main.go</code> and copy its contents to <code>os.Stdout</code> - the terminal standard output.</p>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span></span><span id="codeline-1"><span class="kn">package</span> <span class="nx">main</span>
+</span><span id="codeline-2">
+</span><span id="codeline-3"><span class="kn">import</span> <span class="p">(</span>
+</span><span id="codeline-4">	<span class="s">&quot;io&quot;</span>
+</span><span id="codeline-5">	<span class="s">&quot;log&quot;</span>
+</span><span id="codeline-6">	<span class="s">&quot;os&quot;</span>
+</span><span id="codeline-7"><span class="p">)</span>
+</span><span id="codeline-8">
+</span><span id="codeline-9"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="codeline-10">	<span class="c1">// open the main.go source file - likely this one</span>
+</span><span id="codeline-11">	<span class="nx">file</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="s">&quot;main.go&quot;</span><span class="p">)</span>
+</span><span id="codeline-12">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span><span id="codeline-13">		<span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+</span><span id="codeline-14">	<span class="p">}</span>
+</span><span id="codeline-15">	<span class="nx">io</span><span class="p">.</span><span class="nx">Copy</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">,</span> <span class="nx">file</span><span class="p">)</span>
+</span><span id="codeline-16"><span class="p">}</span>
+</span></code></pre></div>
+
+<p>If we name our file <code>main.go</code> and run it from the directory it is in, it will prints itself out. You can verify this by creating a <code>main.go</code> and adding the contents above then running it with <code>go run main.go</code>.</p>
+
+<p>Now if we were to build our program and move it, or even if we ran it from another directory you will notice that it likely errors, or if there happens to be a file named <code>main.go</code> in the directory you are in it prints out that file instead of its own source.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span></span><span id="codeline-1"><span class="nb">cd</span> ~/some/other/dir
+</span><span id="codeline-2">go run ~/go/src/path/to/our/program/main.go
+</span><span id="codeline-3">
+</span><span id="codeline-4"><span class="c1"># Output:</span>
+</span><span id="codeline-5"><span class="c1"># 2018/02/09 18:53:54 open main.go: no such file or directory</span>
+</span><span id="codeline-6"><span class="c1"># exit status 1</span>
+</span></code></pre></div>
+
+<p>Unlike languages like Ruby on Rails where you are expected to run your program with all of the code present, Go is designed to be built into a binary and then run from <em>anywhere</em>, so it always reads relative from wherever it was run. It can be confusing at first, but it ends up making programs more versatile since they don&rsquo;t depend on all of their source being present.</p>
+
+<h2 id="how-can-i-fix-it">How can I fix it?</h2>
+
+<p>The simple fix - read the files relative to where you plan to run the program  from.</p>
+
+<p>But what happens if you need to include assets in your code? For instance, what if you are building an HTML template and want that included in your binary?</p>
+
+<p>In situations like this, I recommend checking out a package that will allow you to embed static files into your Go code. A few examples are:</p>
+
+<ul>
+<li><a href="https://github.com/gobuffalo/packr">github.com/gobuffalo/packr</a> - This package is part of the <a href="https://gobuffalo.io/">Buffalo</a> framework, but it is just a library and can be used independent of the framework.</li>
+<li><a href="https://github.com/jteeuwen/go-bindata">github.com/jteeuwen/go-bindata</a> - <strong>WARNING</strong> <em>The original user who created this package deleted their GitHub account and another user recreated the same username and uploaded the source code again. I don&rsquo;t believe the source code was changed, but proceed with some caution.</em></li>
+</ul>
+
+<p>Packages like <code>packr</code> will translate static files - like HTML templates - into <code>.go</code> source files at build time and embed the data from the static file into that <code>.go</code> source file. It is similar to taking your entire HTML file and pasting it into a string inside your Go code, so this can increase the size of your binaries a good bit, but can be handy when building a single-binary CLI.</p>
+
+<p>This approach works with pretty much any static files, including images, HTML templates, markdown files, etc.</p>
+
+  </div>
+</div>
+  <p class="text-center text-grey-dark text-xs py-8">
+    Created by <a class="text-grey-dark hover:text-grey-darkest" href="https://www.calhoun.io">Jon Calhoun</a>, but you can check out the source and contribute on
+    <a class="no-underline px-2 py-1 rounded bg-blue hover:bg-blue-dark text-white hover:text-white" href="https://github.com/joncalhoun/errorsingo.com">GitHub</a>
+  </p>
+  <center><img class="pb-8" src="/img/g100.png"></center>
+</body>
+</html>
+

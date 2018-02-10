@@ -1,0 +1,20 @@
+baseURL = "https://errorsingo.com"
+languageCode = "en-us"
+title = "Errors in Go - Learn how to fix common errors in Go"
+
+pygmentsUseClassic = true
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+pygmentsCodefencesGuessSyntax = true
+pygmentsOptions = "linespans=codeline"
+
+paginate = 20
+paginatePath = "page"
+
+preserveTaxonomyNames = true
+
+[permalinks]
+error = "/:slug/"
+
+[taxonomies]
+tag = "pkg"

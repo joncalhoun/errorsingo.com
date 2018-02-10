@@ -1,0 +1,26 @@
+{{partial "header.html" .}}
+<div class="container mx-auto my-6 px-6">
+  <div class="">
+    View errors by:
+    <a href="/" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Date Added</a>
+    <a href="/pkg" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Package/Type</a>
+  </div>
+</div>
+<div class="container mx-auto my-6 bg-white rounded shadow-md">
+  <h1 class="px-6 pt-8 pb-6 text-black">{{.Params.error.message}}</h1>
+  <div class="bg-grey-lightest border-t border-b border-grey-lighter w-full p-6 mb-8">
+    <code class="text-red">{{.Params.error.source}}</code>
+    <code class="text-grey px-1">→</code>
+    <code class="text-yellow-dark block sm:inline">"{{.Params.error.message}}"</code>
+    {{with .Params.package}}
+      <code class="text-sm text-grey block">
+        package documentation:
+        <a href="{{.docs}}" class="text-grey">{{.import}}</a>
+      </code>
+    {{end}}
+  </div>
+  <div class="content pb-8">
+    {{.Content}}
+  </div>
+</div>
+{{partial "footer.html" .}}
