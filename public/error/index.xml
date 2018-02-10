@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Errors on Errors in Go - Learn how to fix common errors in Go</title>
-    <link>https://errorsingo.com/error/</link>
+    <link>https://www.errorsingo.com/error/</link>
     <description>Recent content in Errors on Errors in Go - Learn how to fix common errors in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Feb 2018 18:14:37 -0500</lastBuildDate>
     
-	<atom:link href="https://errorsingo.com/error/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.errorsingo.com/error/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>this-is-not-used</title>
-      <link>https://errorsingo.com/compilation-invalid-identifier-u201c/</link>
+      <link>https://www.errorsingo.com/compilation-invalid-identifier-u201c/</link>
       <pubDate>Fri, 09 Feb 2018 18:14:37 -0500</pubDate>
       
-      <guid>https://errorsingo.com/compilation-invalid-identifier-u201c/</guid>
+      <guid>https://www.errorsingo.com/compilation-invalid-identifier-u201c/</guid>
       <description>What causes the error? This error, and many other invalid identifier errors like it, stem from using an invalid character in your Go code. In this particular case, the issue stems from those weird curved quotation marks - “ and ” - which are different from the quotation marks you normally type. An example is shown below.
 func main() { // this line cause a compilation error fmt.Println(“test”) }   Run it on the Go Playground → https://play.</description>
     </item>
     
     <item>
       <title>this-is-not-used</title>
-      <link>https://errorsingo.com/compilation-invalid-identifier-u201d/</link>
+      <link>https://www.errorsingo.com/compilation-invalid-identifier-u201d/</link>
       <pubDate>Fri, 09 Feb 2018 18:14:37 -0500</pubDate>
       
-      <guid>https://errorsingo.com/compilation-invalid-identifier-u201d/</guid>
+      <guid>https://www.errorsingo.com/compilation-invalid-identifier-u201d/</guid>
       <description>What causes the error? This error, and many other invalid identifier errors like it, stem from using an invalid character in your Go code. In this particular case, the issue stems from those weird curved quotation marks - “ and ” - which are different from the quotation marks you normally type. An example is shown below.
 func main() { // this line cause a compilation error fmt.Println(“test”) }   Run it on the Go Playground → https://play.</description>
     </item>
     
     <item>
       <title>this-is-not-used</title>
-      <link>https://errorsingo.com/github.com-lib-pq-err-ssl-not-supported/</link>
+      <link>https://www.errorsingo.com/github.com-lib-pq-err-ssl-not-supported/</link>
       <pubDate>Thu, 08 Feb 2018 23:58:22 -0500</pubDate>
       
-      <guid>https://errorsingo.com/github.com-lib-pq-err-ssl-not-supported/</guid>
+      <guid>https://www.errorsingo.com/github.com-lib-pq-err-ssl-not-supported/</guid>
       <description>What causes the error? The pq.ErrSSLNotSupported error typically occurs in development when you try to connect to a database without specifying, or with an invalid setting for, the sslmode option in your connection string.
 Let&amp;rsquo;s look at an example. Suppose you are using the lib/pq driver and you create your connection string.
 connStr := &amp;quot;host=localhost port=5432 user=pquser dbname=some_db&amp;quot; db, err := sql.Open(&amp;quot;postgres&amp;quot;, connStr) if err != nil { // Your code errors here!</description>
@@ -44,10 +44,10 @@ connStr := &amp;quot;host=localhost port=5432 user=pquser dbname=some_db&amp;quo
     
     <item>
       <title>this-is-not-used</title>
-      <link>https://errorsingo.com/os-err-not-exist/</link>
+      <link>https://www.errorsingo.com/os-err-not-exist/</link>
       <pubDate>Thu, 08 Feb 2018 23:57:14 -0500</pubDate>
       
-      <guid>https://errorsingo.com/os-err-not-exist/</guid>
+      <guid>https://www.errorsingo.com/os-err-not-exist/</guid>
       <description>What causes the error? If you are here, I&amp;rsquo;m going to assume that you already checked to see if the file exists. If not, go do that now. I&amp;rsquo;ll wait&amp;hellip;
 Okay, files there? Great. The most common cause of this error (aside from a file not being present) stems from not understanding how a Go program looks for files. Unlike many languages you may have used in the past, Go opens files relative to where the binary is run from.</description>
     </item>

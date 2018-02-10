@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Compilation on Errors in Go - Learn how to fix common errors in Go</title>
-    <link>https://errorsingo.com/pkg/compilation/</link>
+    <link>https://www.errorsingo.com/pkg/compilation/</link>
     <description>Recent content in Compilation on Errors in Go - Learn how to fix common errors in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Feb 2018 18:14:37 -0500</lastBuildDate>
     
-	<atom:link href="https://errorsingo.com/pkg/compilation/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.errorsingo.com/pkg/compilation/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>this-is-not-used</title>
-      <link>https://errorsingo.com/compilation-invalid-identifier-u201c/</link>
+      <link>https://www.errorsingo.com/compilation-invalid-identifier-u201c/</link>
       <pubDate>Fri, 09 Feb 2018 18:14:37 -0500</pubDate>
       
-      <guid>https://errorsingo.com/compilation-invalid-identifier-u201c/</guid>
+      <guid>https://www.errorsingo.com/compilation-invalid-identifier-u201c/</guid>
       <description>What causes the error? This error, and many other invalid identifier errors like it, stem from using an invalid character in your Go code. In this particular case, the issue stems from those weird curved quotation marks - “ and ” - which are different from the quotation marks you normally type. An example is shown below.
 func main() { // this line cause a compilation error fmt.Println(“test”) }   Run it on the Go Playground → https://play.</description>
     </item>
     
     <item>
       <title>this-is-not-used</title>
-      <link>https://errorsingo.com/compilation-invalid-identifier-u201d/</link>
+      <link>https://www.errorsingo.com/compilation-invalid-identifier-u201d/</link>
       <pubDate>Fri, 09 Feb 2018 18:14:37 -0500</pubDate>
       
-      <guid>https://errorsingo.com/compilation-invalid-identifier-u201d/</guid>
+      <guid>https://www.errorsingo.com/compilation-invalid-identifier-u201d/</guid>
       <description>What causes the error? This error, and many other invalid identifier errors like it, stem from using an invalid character in your Go code. In this particular case, the issue stems from those weird curved quotation marks - “ and ” - which are different from the quotation marks you normally type. An example is shown below.
 func main() { // this line cause a compilation error fmt.Println(“test”) }   Run it on the Go Playground → https://play.</description>
     </item>

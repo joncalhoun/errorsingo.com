@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pkg on Errors in Go - Learn how to fix common errors in Go</title>
-    <link>https://errorsingo.com/pkg/</link>
+    <link>https://www.errorsingo.com/pkg/</link>
     <description>Recent content in Pkg on Errors in Go - Learn how to fix common errors in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Feb 2018 18:14:37 -0500</lastBuildDate>
     
-	<atom:link href="https://errorsingo.com/pkg/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.errorsingo.com/pkg/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Compilation</title>
-      <link>https://errorsingo.com/pkg/compilation/</link>
+      <link>https://www.errorsingo.com/pkg/compilation/</link>
       <pubDate>Fri, 09 Feb 2018 18:14:37 -0500</pubDate>
       
-      <guid>https://errorsingo.com/pkg/compilation/</guid>
+      <guid>https://www.errorsingo.com/pkg/compilation/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Github.com/lib/pq</title>
-      <link>https://errorsingo.com/pkg/github.com/lib/pq/</link>
+      <link>https://www.errorsingo.com/pkg/github.com/lib/pq/</link>
       <pubDate>Thu, 08 Feb 2018 23:58:22 -0500</pubDate>
       
-      <guid>https://errorsingo.com/pkg/github.com/lib/pq/</guid>
+      <guid>https://www.errorsingo.com/pkg/github.com/lib/pq/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Os</title>
-      <link>https://errorsingo.com/pkg/os/</link>
+      <link>https://www.errorsingo.com/pkg/os/</link>
       <pubDate>Thu, 08 Feb 2018 23:57:14 -0500</pubDate>
       
-      <guid>https://errorsingo.com/pkg/os/</guid>
+      <guid>https://www.errorsingo.com/pkg/os/</guid>
       <description></description>
     </item>
     
