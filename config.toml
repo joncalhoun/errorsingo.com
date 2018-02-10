@@ -1,4 +1,4 @@
-baseURL = "https://www.errorsingo.com"
+baseURL = "https://errorsingo.com"
 languageCode = "en-us"
 title = "Errors in Go - Learn how to fix common errors in Go"
 

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Github.com/lib/pq on Errors in Go - Learn how to fix common errors in Go</title>
-    <link>https://www.errorsingo.com/pkg/github.com/lib/pq/</link>
+    <link>https://errorsingo.com/pkg/github.com/lib/pq/</link>
     <description>Recent content in Github.com/lib/pq on Errors in Go - Learn how to fix common errors in Go</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 08 Feb 2018 23:58:22 -0500</lastBuildDate>
     
-	<atom:link href="https://www.errorsingo.com/pkg/github.com/lib/pq/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://errorsingo.com/pkg/github.com/lib/pq/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>this-is-not-used</title>
-      <link>https://www.errorsingo.com/github.com-lib-pq-err-ssl-not-supported/</link>
+      <link>https://errorsingo.com/github.com-lib-pq-err-ssl-not-supported/</link>
       <pubDate>Thu, 08 Feb 2018 23:58:22 -0500</pubDate>
       
-      <guid>https://www.errorsingo.com/github.com-lib-pq-err-ssl-not-supported/</guid>
+      <guid>https://errorsingo.com/github.com-lib-pq-err-ssl-not-supported/</guid>
       <description>What causes the error? The pq.ErrSSLNotSupported error typically occurs in development when you try to connect to a database without specifying, or with an invalid setting for, the sslmode option in your connection string.
 Let&amp;rsquo;s look at an example. Suppose you are using the lib/pq driver and you create your connection string.
 connStr := &amp;quot;host=localhost port=5432 user=pquser dbname=some_db&amp;quot; db, err := sql.Open(&amp;quot;postgres&amp;quot;, connStr) if err != nil { // Your code errors here!</description>
