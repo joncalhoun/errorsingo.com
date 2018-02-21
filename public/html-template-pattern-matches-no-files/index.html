@@ -3,8 +3,10 @@
 <head>
   
   
+    
   
-  <title>Errors in Go</title>
+  
+  <title>Errors in Go - html/template: pattern matches no files:</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
@@ -26,7 +28,7 @@
   
   
   <meta content="https://errorsingo.com/img/social_share.png" property="og:image">
-  <meta content="Errors in Go" property="og:title">
+  <meta content="Errors in Go - html/template: pattern matches no files:" property="og:title">
   <meta content="article" property="og:type">
   <meta content="https://errorsingo.com" property="og:url">
   <meta content="ErrorsInGo.com" property="og:site_name">
@@ -36,10 +38,10 @@
   <meta name="twitter:card" content="photo">
   <meta name="twitter:site" content="@joncalhoun">
   <meta name="twitter:creator" content="@joncalhoun">
-  <meta name="twitter:title" content="Errors in Go">
+  <meta name="twitter:title" content="Errors in Go - html/template: pattern matches no files:">
   <meta name="twitter:description" content="Learn typical causes and solutions for common errors in Go">
   <meta name="twitter:image" content="https://errorsingo.com/img/social_share.png">
-  <meta name="twitter:url" content="https://errorsingo.com/pkg/">
+  <meta name="twitter:url" content="https://errorsingo.com/html-template-pattern-matches-no-files/">
 
 
   
@@ -57,43 +59,36 @@
   <div class="">
     View errors by:
     <a href="/" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Date Added</a>
-    <a class="no-underline rounded px-2 py-1 my-1 bg-grey-lighter text-grey-dark">Package/Type (current)</a>
+    <a href="/pkg" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Package/Type</a>
   </div>
 </div>
-<div class="container mx-auto flex flex-wrap my-6">
-
-  <div class="w-full md:w-1/2 lg:w-1/3 p-2">
-    <a class="no-underline" href="https://errorsingo.com/pkg/compilation/">
-      <div class="w-full rounded shadow py-4 px-4 text-center text-grey-darker bg-white border border border-grey-lighter hover:border-grey-light hover:text-indigo-darkest">
-        <code>compilation</code>
-      </div>
-    </a>
+<div class="container mx-auto my-6 bg-white rounded shadow-md">
+  <h1 class="px-6 pt-8 pb-6 text-black">html/template: pattern matches no files:</h1>
+  <div class="bg-grey-lightest border-t border-b border-grey-lighter w-full p-6 mb-8">
+    <code class="text-red">template.ParseGlob()</code>
+    <code class="text-grey px-1">→</code>
+    <code class="text-yellow-dark block sm:inline">"html/template: pattern matches no files:"</code>
+    
+      <code class="text-sm text-grey block">
+        package documentation:
+        <a href="https://godoc.org/html/template" class="text-grey">html/template</a>
+      </code>
+    
   </div>
+  <div class="content pb-8">
+    
 
-  <div class="w-full md:w-1/2 lg:w-1/3 p-2">
-    <a class="no-underline" href="https://errorsingo.com/pkg/github.com/lib/pq/">
-      <div class="w-full rounded shadow py-4 px-4 text-center text-grey-darker bg-white border border border-grey-lighter hover:border-grey-light hover:text-indigo-darkest">
-        <code>github.com/lib/pq</code>
-      </div>
-    </a>
+<h2 id="what-causes-the-error">What causes the error?</h2>
+
+<p>This issue is easily caused by some of the same issues that cause the <code>os.ErrNotExist</code> error. As a result, I suggest you <a href="/os-err-not-exist/">start with the os.ErrNotExist article</a>. Make sure you understand how Go reads opens files relative to where it is run (not relative to where your source code is), and then see if you can figure out the issue.</p>
+
+<p>If that doesn&rsquo;t work feel free to reach out - <a href="mailto:jon@calhoun.io">jon@calhoun.io</a> - I&rsquo;d be happy to work with you and use what we figure out to add more to this page 😁</p>
+
+<!-- ## How can I fix it? -->
+
+<!-- Fill this in... -->
+
   </div>
-
-  <div class="w-full md:w-1/2 lg:w-1/3 p-2">
-    <a class="no-underline" href="https://errorsingo.com/pkg/html/template/">
-      <div class="w-full rounded shadow py-4 px-4 text-center text-grey-darker bg-white border border border-grey-lighter hover:border-grey-light hover:text-indigo-darkest">
-        <code>html/template</code>
-      </div>
-    </a>
-  </div>
-
-  <div class="w-full md:w-1/2 lg:w-1/3 p-2">
-    <a class="no-underline" href="https://errorsingo.com/pkg/os/">
-      <div class="w-full rounded shadow py-4 px-4 text-center text-grey-darker bg-white border border border-grey-lighter hover:border-grey-light hover:text-indigo-darkest">
-        <code>os</code>
-      </div>
-    </a>
-  </div>
-
 </div>
   <p class="text-center text-grey-dark text-xs py-8 leading-normal">
     Created by <a class="text-grey-dark hover:text-grey-darkest" href="https://www.calhoun.io">Jon Calhoun</a>, but you can check out the source and contribute on
