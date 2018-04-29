@@ -4,7 +4,7 @@ title = "this-is-not-used"
 date = 2018-04-29T13:39:40-04:00
 slug = "compliation-no-new-variables-on-left-side-of"
 # This is used for sorting errors by package
-pkg = "compliation"
+pkg = "compilation"
 
 # Unused for now, but fill it out just in case.
 author = "Jon Calhoun"
