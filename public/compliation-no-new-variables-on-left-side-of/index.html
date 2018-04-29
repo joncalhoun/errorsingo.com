@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  
+    
+  
+  
+  <title>Errors in Go - no new variables on left side of :=</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="keywords" content="learn golang go gopher coding errors">
+  
+  <meta name="author" content="Jon Calhoun">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6369d1">
+  <meta name="apple-mobile-web-app-title" content="Errors in Go">
+  <meta name="application-name" content="Errors in Go">
+  <meta name="msapplication-TileColor" content="#603cba">
+  <meta name="theme-color" content="#6369d1">
+
+
+  
+  
+  <meta content="https://errorsingo.com/img/social_share.png" property="og:image">
+  <meta content="Errors in Go - no new variables on left side of :=" property="og:title">
+  <meta content="article" property="og:type">
+  <meta content="https://errorsingo.com" property="og:url">
+  <meta content="ErrorsInGo.com" property="og:site_name">
+  <meta content="Learn typical causes and solutions for common errors in Go" property="og:description">
+
+  
+  <meta name="twitter:card" content="photo">
+  <meta name="twitter:site" content="@joncalhoun">
+  <meta name="twitter:creator" content="@joncalhoun">
+  <meta name="twitter:title" content="Errors in Go - no new variables on left side of :=">
+  <meta name="twitter:description" content="Learn typical causes and solutions for common errors in Go">
+  <meta name="twitter:image" content="https://errorsingo.com/img/social_share.png">
+  <meta name="twitter:url" content="https://errorsingo.com/compliation-no-new-variables-on-left-side-of/">
+
+
+  
+  <link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="bg-grey-lightest">
+  <nav class="flex p-4 px-6">
+    <div class="flex-grow items-center text-center">
+      <a href="/"><img alt="Common Causes and Fixes For Errors in Go" style="max-height: 120px;" src="/img/banner999.png"></a>
+    </div>
+  </nav>
+
+<div class="container mx-auto my-6 px-6">
+  <div class="">
+    View errors by:
+    <a href="/" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Date Added</a>
+    <a href="/pkg" class="no-underline rounded px-2 py-1 my-1 bg-orange-lightest hover:bg-orange-lighter text-orange-dark hover:text-orange-darkest">Package/Type</a>
+  </div>
+</div>
+<div class="container mx-auto my-6 bg-white rounded shadow-md">
+  <h1 class="px-6 pt-8 pb-6 text-black">no new variables on left side of :=</h1>
+  <div class="bg-grey-lightest border-t border-b border-grey-lighter w-full p-6 mb-8">
+    <code class="text-red">go build</code>
+    <code class="text-grey px-1">→</code>
+    <code class="text-yellow-dark block sm:inline">"no new variables on left side of :="</code>
+    
+  </div>
+  <div class="content pb-8">
+    
+
+<h2 id="what-causes-the-error">What causes the error?</h2>
+
+<p>This error means that you are trying to use Go&rsquo;s short form variable declaration (<code>a := &quot;some-value&quot;</code>) when the variable has already been declared.</p>
+
+<p>The most common cause of this compilation error is when you have a variable declared via short form declaration and then add a new line of code before that line which adds a new declaration. This is much clearer with an example.</p>
+
+<p>Imagine you started out with this code:</p>
+
+<div class="playground"><pre><code class="language-go" data-lang="go"><span></span><span id="codeline-1"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="codeline-2">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">doStuff</span><span class="p">()</span>
+</span><span id="codeline-3">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span><span id="codeline-4">		<span class="c1">// handle err</span>
+</span><span id="codeline-5">	<span class="p">}</span>
+</span><span id="codeline-6"><span class="p">}</span>
+</span></code></pre></div>
+
+<div class="playground-footer">
+  <p>
+    Run it on the Go Playground → <a class="text-indigo-lightest hover:text-white" href="https://play.golang.org/p/wPF8LDjBLXb">https://play.golang.org/p/wPF8LDjBLXb</a>
+  </p>
+</div>
+
+
+<p>And then later you decided that you needed to add a line of code at the very start of your function that also calls a function that returns an error:</p>
+
+<div class="playground"><pre><code class="language-go" data-lang="go"><span></span><span id="codeline-1"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="codeline-2">	<span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">doMoreStuff</span><span class="p">()</span>
+</span><span id="codeline-3">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span><span id="codeline-4">		<span class="c1">// handle err</span>
+</span><span id="codeline-5">	<span class="p">}</span>
+</span><span id="codeline-6">	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+</span><span id="codeline-7">	<span class="nx">err</span> <span class="o">:=</span> <span class="nx">doStuff</span><span class="p">()</span>
+</span><span id="codeline-8">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span><span id="codeline-9">		<span class="c1">// handle err</span>
+</span><span id="codeline-10">	<span class="p">}</span>
+</span><span id="codeline-11"><span class="p">}</span>
+</span></code></pre></div>
+
+<div class="playground-footer">
+  <p>
+    Run it on the Go Playground → <a class="text-indigo-lightest hover:text-white" href="https://play.golang.org/p/HTMxyilX9Q1">https://play.golang.org/p/HTMxyilX9Q1</a>
+  </p>
+</div>
+
+
+<p>At this point your code will start producing the <code>no new variables on left side of :=</code> error because <code>err</code> is already declared when we call <code>doStuff()</code>, but we are still using the <code>:=</code> short form declaration.</p>
+
+<h2 id="how-can-i-fix-it">How can I fix it?</h2>
+
+<p>To fix this error you simply need to remove the <code>:</code> from the second declaration of the variable.</p>
+
+<p><div class="playground"><pre><code class="language-go" data-lang="go"><span></span><span id="codeline-1"><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</span><span id="codeline-2">	<span class="nx">n</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">doMoreStuff</span><span class="p">()</span>
+</span><span id="codeline-3">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span><span id="codeline-4">		<span class="c1">// handle err</span>
+</span><span id="codeline-5">	<span class="p">}</span>
+</span><span id="codeline-6">	<span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span>
+</span><span id="codeline-7">	<span class="nx">err</span> <span class="p">=</span> <span class="nx">doStuff</span><span class="p">()</span>
+</span><span id="codeline-8">	<span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</span><span id="codeline-9">		<span class="c1">// handle err</span>
+</span><span id="codeline-10">	<span class="p">}</span>
+</span><span id="codeline-11"><span class="p">}</span>
+</span></code></pre></div>
+
+<div class="playground-footer">
+  <p>
+    Run it on the Go Playground → <a class="text-indigo-lightest hover:text-white" href="https://play.golang.org/p/e8bodyA49nY">https://play.golang.org/p/e8bodyA49nY</a>
+  </p>
+</div>
+</p>
+
+<p>Another way to help avoid this error, especially with the <code>err</code> variable which is fairly common, is to declare an <code>err</code> variable at the start of your function and to not use the short form declaration for it.</p>
+<div class="highlight"><pre><code class="language-go" data-lang="go"><span></span><span id="codeline-1"><span class="kd">var</span> <span class="nx">err</span> <span class="kt">error</span>
+</span></code></pre></div>
+
+  </div>
+</div>
+  <p class="text-center text-grey-dark text-xs py-8 leading-normal">
+    Created by <a class="text-grey-dark hover:text-grey-darkest" href="https://www.calhoun.io">Jon Calhoun</a>, but you can check out the source and contribute on
+    <a class="no-underline my-2 px-2 py-1 rounded bg-blue hover:bg-blue-dark text-white hover:text-white" href="https://github.com/joncalhoun/errorsingo.com">GitHub</a>
+  </p>
+  <center><img class="pb-8" src="/img/g100.png"></center>
+</body>
+</html>
+
