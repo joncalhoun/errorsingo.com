@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Compliation on Errors in Go - Learn how to fix common errors in Go</title>
+    <link>https://errorsingo.com/pkg/compliation/</link>
+    <description>Recent content in Compliation on Errors in Go - Learn how to fix common errors in Go</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Apr 2018 13:39:40 -0400</lastBuildDate>
+    
+	<atom:link href="https://errorsingo.com/pkg/compliation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>this-is-not-used</title>
+      <link>https://errorsingo.com/compliation-no-new-variables-on-left-side-of/</link>
+      <pubDate>Sun, 29 Apr 2018 13:39:40 -0400</pubDate>
+      
+      <guid>https://errorsingo.com/compliation-no-new-variables-on-left-side-of/</guid>
+      <description>What causes the error? This error means that you are trying to use Go&amp;rsquo;s short form variable declaration (a := &amp;quot;some-value&amp;quot;) when the variable has already been declared.
+The most common cause of this compilation error is when you have a variable declared via short form declaration and then add a new line of code before that line which adds a new declaration. This is much clearer with an example.</description>
+    </item>
+    
+  </channel>
+</rss>
