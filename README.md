@@ -2,5 +2,5 @@
 
 ## TODO
 
-- [ ] Add license
+- [X] Add license
 - [ ] Add contribution guide
