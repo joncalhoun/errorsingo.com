@@ -46,7 +46,7 @@ func main() {
 }
 ```
 
-If we name our file `main.go` and run it from the directory it is in, it will prints itself out. You can verify this by creating a `main.go` and adding the contents above then running it with `go run main.go`.
+If we name our file `main.go` and run it from the directory it is in, it will print itself out. You can verify this by creating a `main.go` and adding the contents above then running it with `go run main.go`.
 
 Now if we were to build our program and move it, or even if we ran it from another directory you will notice that it likely errors, or if there happens to be a file named `main.go` in the directory you are in it prints out that file instead of its own source.
 
@@ -64,7 +64,7 @@ Unlike languages like Ruby on Rails where you are expected to run your program w
 
 ## How can I fix it?
 
-The simple fix - read the files relative to where you plan to run the program  from.
+The simple fix - read the files relative to where you plan to run the program from.
 
 But what happens if you need to include assets in your code? For instance, what if you are building an HTML template and want that included in your binary?
 
